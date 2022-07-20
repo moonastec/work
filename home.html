@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moon_astec&#9789; work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="photos/favicon.ico">
+    <link rel="stylesheet" href="darbas.css" type="text/css">
+</head>
+<body onload="loadFunction()">
+  <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+    *{
+           text-transform: lowercase;
+           font-family: 'Poppins', sans-serif;
+           cursor: default;
+       }
+       i{
+         cursor: pointer;
+       }
+    .nuotrauka{
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    background-image: url(photos/logo.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 5px solid darkgray;
+    margin: 30px auto;
+    margin-top: 50px;
+}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: lightgray;
+  color: black;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  position: fixed;
+  bottom: 20px;
+  right:  20px;
+  width: 200px;
+    height: 60px;
+    transition: .5s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+}
+      .open-button:hover{
+            background-color: gray;
+          color: white;
+      }
+      .open-button2:hover{
+            background-color: gray;
+          color: white;
+      }
+      .button:hover{
+            background-color: gray;
+          color: white;
+      }
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: darkseagreen;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 1;
+    transition: 0.5s;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: indianred;
+    transition: 0.5s;
+    font-size: 20px;
+}
+      .form-container .btn:hover{
+          background-color: springgreen;
+          color: black;
+      }
+/* Add some hover effects to buttons */
+.form-container .cancel:hover {
+  background-color: orangered;
+}
+      .form-container2 {
+  width: 250px;
+  height: 220px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+
+/* When the textarea gets focus, do something */
+.form-container2 textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container2 .btn {
+  background-color: indianred;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 1;
+    transition: 0.5s;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Add a red background color to the cancel button */
+.form-container2 .cancel {
+  background-color: darkseagreen;
+    transition: 0.5s;
+    font-size: 20px;
+}
+      .form-container2 .btn:hover{
+          background-color: red;
+      }
+/* Add some hover effects to buttons */
+.form-container2 .cancel:hover {
+  background-color: green;
+}
+      .open-button2 {
+  background-color: lightgray;
+  color: black;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  position: fixed;
+  bottom: 20px;
+  right:  20px;
+  width: 200px;
+    height: 60px;
+    transition: .5s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.button {
+  background-color: lightgray;
+  color: black;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  width: 200px;
+    height: 60px;
+    transition: .5s;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    overflow: hidden;
+    user-select: none;
+}
+      .chat-popup2 {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  border: 3px solid darkgrey;
+  box-shadow: 0 0 10px;
+  z-index: 9;
+  bottom: -350px;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+      section{
+        background-color: azure;
+      }
+      #screen {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: azure;
+    z-index: 100;
+    top: 0;
+    transition: 0.3s;
+}
+@keyframes size{
+    0%{
+        transform: scale(1.0);
+    }
+    8%{
+        transform: scale(1.1);
+    }
+    16%{
+        transform: scale(1.0);
+    }
+    24%{
+        transform: scale(1.1);
+    }
+    32%{
+        transform: scale(1.0);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+@keyframes sukasi2{
+    from{
+        transform: rotate(6000deg);
+    }
+    to{
+        
+    }
+}
+@keyframes opacity{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes spin{
+    0%{
+        transform: rotate(-360deg);
+    }
+    100%{
+        
+    }
+}
+    @keyframes spin{
+    0%{
+        transform: rotate(-360deg);
+    }
+    100%{
+        
+    }
+}
+#profilis{
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    top: -100%;
+    left: 5%;
+    right: 5%;
+    position: fixed;
+  text-align: center;
+  background-color: azure;
+    color: black;
+    margin: 0 auto;
+  margin-top: 20px;
+    transition: 0.3s;
+    border-radius: 15px;
+}
+#back{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+#add{
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    top: -100%;
+    left: 5%;
+    right: 5%;
+    position: fixed;
+  text-align: center;
+  background-color: azure;
+    color: black;
+    margin: 0 auto;
+  margin-top: 20px;
+    transition: 0.3s;
+    border-radius: 15px;
+}
+#back2{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+#closing{
+    font-size: 35px; 
+    position: absolute; 
+    top: 15px; 
+    right: 25px; 
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid black;
+    border-radius: 100%;
+    padding-left: 6.3px;
+    padding-right: 6.3px;
+}
+#closing:hover{
+    color: darkgray;
+    border-color: darkgray;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.file{
+  width: 95%;
+  height: 50px;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin: 15px;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+.file:hover{
+  background-color: grey;
+  color: white;
+}
+#fileMenu{
+  width: 370px;
+  height: 0;
+  background-color: lightgrey;
+  border-radius: 15px;
+  margin-left: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  opacity: 0;
+  overflow: hidden;
+  position: relative;
+}
+#fileMenu p{
+  width: 130px;
+  border-radius: 15px;
+  background-color: darkgrey;
+  cursor: pointer;
+  margin: 20px;
+  transition: 0.3s;
+}
+#fileMenu p:hover{
+  background-color: grey;
+  color: white;
+}
+#completeInfo1{
+  width: auto;
+  top: 250px;
+  height: auto;
+  background-color: lightgrey;
+  border-radius: 15px;
+  position: absolute;
+  left: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  opacity: 0;
+  overflow: hidden;
+  padding: 7px;
+  cursor: default;
+  display: none;
+}
+#arrow1{
+  position: absolute; 
+  left: 4%; 
+  top: 343px; 
+  transition: 0.3s; 
+  opacity: 0; 
+  cursor: pointer; 
+  font-size: 20px; 
+  border-radius: 100%;
+  display: none;
+}
+#arrow1:hover{
+ color: white;
+}
+.btnu{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btnu:hover{
+            background-color: gray;
+          color: white;
+}
+@media only screen and (max-width: 750px){
+    #profilis{
+        width: 90%;
+        height: 96%;
+        right: -200%;
+        top: -0.5%;
+        bottom: 2%;
+    }
+    #arrow1{
+      left: 10%;
+    }
+    #arrow1:hover{
+ color: black;
+}
+    .file:hover{
+  background-color: lightgrey;
+  color: black;
+}
+#completeInfo1{
+  top: 220px;
+  right: 2.5%;
+}
+#buttoe{
+  display: none;
+  opacity: 0;
+}
+}
+    </style>
+    <div id="screen">
+      <p style="position: absolute; font-size: 13px; color: red; transition: 0.3s; margin-top: -2000px;" id="wifi"><i class="fa-solid fa-wifi"></i> Prastas interneto ryšys</p>
+      <div style="width: 120px; height: 120px; border-radius: 100%; box-shadow: 5px 0 10px darkgray; display: flex; justify-content: center; align-items: center; animation: spin 1s linear infinite;"></div>
+      <img src="photos/logo.jpg" alt="Moon_astec" style="position: absolute; width: 100px; height: 100px;">
+  </div>
+   <div class="nuotrauka"></div>
+   <h2>Employee: Moon_astec&#9789;</h2>
+        <section>
+          
+      <button class="open-button2" onclick="openForm()"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+      <button class="btnu" id="butto" onclick="openMoon()"><i class="fa-solid fa-moon" style="font-size: 20px; transform: rotate(-150deg);" id="moon"></i></button>
+      <div style="width: 60px; height: 60px; border-radius: 100%; position: fixed; bottom: 7px; left: 20px; opacity: 0; display: none; margin: 13px auto; box-shadow: 2.5px 0 10px darkgray; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite;" id="loader3"></div>
+       <div class="chat-popup2" id="myForm2">
+  <form action="prisijungimas.html" class="form-container2" id="formo">
+  <h1 style="margin-bottom: 10px; font-size: 20px;">Log out</h1>
+   <p style="margin-bottom: 10px; font-size: 13px;" id="logih">Are you sure you want to log out?</p>
+   <p style="margin-bottom: 10px; font-size: 13px; display: none;" id="logih2">Logging out...</p>
+
+
+   <div style="width: 50px; height: 50px; border-radius: 100%; opacity: 0; display: none; margin: 13px auto; box-shadow: 2.5px 0 10px darkgray; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite;" id="loader2"></div>
+    <button type="button" class="btn" id="logi" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log out</button>
+    <button type="button" class="btn cancel" id="logi2" onclick="closeForm()"><i class="fa-solid fa-xmark"></i> Cancel</button>
+  </form>
+</div>
+      </section>
+      <div style="width: 300px; height: 50px; border-radius: 15px; background-color: lightgrey; position: fixed; bottom: 100px; box-shadow: 0 0 10px darkgrey; left: -400px; transition: 0.3s; display: flex; justify-content: center; align-items: center;" id="start"><p>Download started...</p></div>
+      <div style="width: 60px; height: 60px; transition: 0.3s; background-color: lightgrey; border-radius: 100%; display: flex; justify-content: center; align-items: center; position: absolute; top: 20px; right: 20px; cursor: pointer; z-index: 10;" id="show" onclick="myFunction()">
+        <i class="fa-solid fa-user" style="font-size: 30px; color: black;"></i>
+    </div>
+    <div style="width: 60px; height: 60px; border-radius: 100%; opacity: 0; margin: 0 auto; box-shadow: 2.5px 0 10px darkgray; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite; position: absolute; z-index: 5; top: 20px; right: 20px;" id="loader">
+    </div>
+    <div style="width: 60px; height: 60px; border-radius: 100%; opacity: 0; margin: 0 auto; box-shadow: 2.5px 0 10px darkgray; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite; position: absolute; z-index: 5; top: 20px; left: 20px;" id="loaderer"></div>
+    <h1 style="margin-top: 10px; margin-bottom: 10px;">Moon_astec&#9789; work</h1>
+    
+
+    <div id="completeInfo1"><p>Please <a href="mailto:matas.kaspar@gmail.com" style="color: blue; text-decoration: underline; cursor: pointer;" target="_blank">send us</a> the completed file. <br> <span style="color: red;">The work website will be updated after the file will be checked by admins.</span></p></div>
+    <div id="fileMenu"><p id="download1" onclick="download1()"><i class="fa-solid fa-file-arrow-down"></i> Download</p><p id="complete1" onclick="complete1()"><i class="fa-solid fa-check"></i> Complete</p><div style="width: 37px; height: 37px; border-radius: 100%; display: none; opacity: 0; margin: 0 auto; box-shadow: 2px 0 10px darkgray; left: 85px; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite; position: absolute;" id="loading1"></div><div style="width: 37px; height: 37px; border-radius: 100%; display: none; opacity: 0; margin: 0 auto; box-shadow: 2px 0 10px darkgray; left: 255px; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite; position: absolute;" id="loading2"></div></div>
+
+   <div class="file" onclick="file1()" id="file1"><p style="cursor: pointer;">need to fix item about description</p></div>
+   <i class="fa-solid fa-arrow-down" id="arrow1" onclick="file1close()"></i>
+    <!-- <hr style="border-top: 2px solid black;">
+    <p style="margin: 15px;">There is no work currently.</p>
+    <hr style="border-top: 2px solid black;"> -->
+
+    <div id="back" onclick="closeProfile()"></div>
+    <div id="profilis">
+      <i class="fas fa-times" id="closing" onclick="closeProfile()"></i>
+      <div class="nuotrauka"></div>
+      <h1>Employee: Moon_astec&#9789;</h1>
+      <h2>Code: @4338</h2>
+      <button class="button" onclick="payment()" id="pay"><i class="fa-solid fa-receipt"></i> payments</button>
+      <button class="button" onclick="information()" id="info"><i class="fa-solid fa-circle-info"></i> information</button>
+      <div id="paymentsDiv" style="width: 100%; opacity: 0; display: none; transition: 0.3s;">
+        <div class="file" style="cursor: default;"> <p>Payment for "need to fix item descriptions" - 17.08.20 - <b>00.40€</b></p></div>
+        <!-- <hr style="border-top: 2px solid black;">
+        <p style="margin: 15px; text-align: center;">There are no payments currently.</p>
+        <hr style="border-top: 2px solid black;"> -->
+        <p style="margin: 15px; margin-top: 30px; text-align: center;">Total balance: 00.40€</p>
+        <p style="margin: 15px; text-align: center; color: darkgrey;">9.60€ more is needed to convert to money.</p>
+        <button class="button" style="width: 250px; transform: scale(0.8); cursor: default; pointer-events: none; opacity: 0.4;"><i class="fa-solid fa-arrow-right-arrow-left"></i> convert to money</button>
+      </div>
+      <div id="informationDiv" style="width: 100%; opacity: 0; display: none; transition: 0.3s;">
+        <hr style="border-top: 2px solid black;">
+        <p style="margin: 15px; text-align: center;">Email: moon.astec@gmail.com</p>
+        <hr style="border-top: 2px solid black;">
+        <p style="margin: 15px; text-align: center;">Password: <span id="pass">**************</span><span id="pass2" style="display: none; text-transform: none;">MoonastecADMIN</span> <i class="fa-solid fa-eye" id="eye" style="transition: 0.3s;" onclick="show()"></i><i class="fa-solid fa-eye-slash" style="transition: 0.3s; display: none; opacity: 0;" id="eye2" onclick="show2()"></i></p>
+        <hr style="border-top: 2px solid black;">
+        <p style="margin: 15px; text-align: center;">Duty: manager</p>
+        <hr style="border-top: 2px solid black; margin-bottom: 15px;">
+        <a href="mailto:matas.kaspar@gmail.com" style="color: blue; text-decoration: underline; cursor: pointer;" target="_blank">Contact admin</a>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a11707644f.js" crossorigin="anonymous"></script>
+<script>
+function myFunction() {
+            if ( window.innerWidth > 750) {  
+              document.getElementById("loader").style.opacity = "1";
+              document.getElementById("show").style.opacity = "0.4";   
+              setTimeout(() => {
+                document.getElementById("back").style.zIndex = "25";
+                }, 3000);
+                setTimeout(() => {
+                    document.getElementById("back").style.opacity = "0.9";
+                }, 3100);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.top = "30%";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.right = "5%";
+                }, 3000);
+                setTimeout(() => {   document.getElementById("profilis").style.top = "2%"; }, 3270);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.overflowY = "scroll";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.zIndex = "25";
+                }, 3000);
+                setTimeout(() => {
+                  document.title = 'moon_astec☽ work profile';
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("loader").style.opacity = "0";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("show").style.opacity = "1";   
+                }, 3000);
+            }
+            else {
+              document.getElementById("loader").style.opacity = "1";
+              document.getElementById("show").style.opacity = "0.4";   
+              setTimeout(() => {
+                document.getElementById("back").style.zIndex = "25";
+                }, 3000);
+                setTimeout(() => {
+                    document.getElementById("back").style.opacity = "0.9";
+                }, 3100);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.top = "-0.5%";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.right = "5%";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.overflowY = "scroll";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("profilis").style.zIndex = "25";
+                }, 3000);
+                setTimeout(() => {
+                  document.title = 'moon_astec☽ work profile';
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("loader").style.opacity = "0";
+                }, 3000);
+                setTimeout(() => {
+                  document.getElementById("show").style.opacity = "1";   
+                }, 3000);
+            }
+        }
+
+        function closeProfile() {
+            if ( window.innerWidth > 750) {     
+                document.getElementById("profilis").style.top = "-120%";;
+                document.getElementById("profilis").style.overflowY = "hidden";
+                document.getElementById("profilis").style.zIndex = "-1";
+                document.getElementById("back").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("back").style.zIndex = "-1";
+                }, 300);
+                document.title = 'moon_astec☽ work';
+                document.getElementById("paymentsDiv").style.opacity = "0";
+                document.getElementById("informationDiv").style.opacity = "0";
+                setTimeout(() => {
+                  document.getElementById("paymentsDiv").style.display = "none";
+                  document.getElementById("informationDiv").style.display = "none";
+                }, 300);
+                setTimeout(() => {
+                  document.getElementById("info").style.width = "200px";
+                  document.getElementById("pay").style.width = "200px";
+                  document.getElementById("info").style.margin = "20px";
+                  document.getElementById("pay").style.margin = "20px";
+                }, 300);
+                setTimeout(() => {
+                  document.getElementById("info").style.cursor = "pointer";
+                  document.getElementById("pay").style.cursor = "pointer";
+                  document.getElementById("info").style.pointerEvents = "all";
+                  document.getElementById("pay").style.pointerEvents = "all";
+                  document.getElementById("info").style.opacity = "1";
+                  document.getElementById("pay").style.opacity = "1";
+                }, 600);
+            }
+            else {
+                document.getElementById("profilis").style.right = "-200%";
+                document.getElementById("profilis").style.overflowY = "scroll";
+                document.getElementById("profilis").style.zIndex = "20";
+                document.getElementById("back").style.opacity = "0";
+                setTimeout(() => {
+                    document.getElementById("back").style.zIndex = "-1";
+                }, 300);
+                document.title = 'moon_astec☽ work';
+                document.getElementById("paymentsDiv").style.opacity = "0";
+                document.getElementById("informationDiv").style.opacity = "0";
+                setTimeout(() => {
+                  document.getElementById("paymentsDiv").style.display = "none";
+                  document.getElementById("informationDiv").style.display = "none";
+                }, 300);
+                setTimeout(() => {
+                  document.getElementById("info").style.width = "200px";
+                  document.getElementById("pay").style.width = "200px";
+                  document.getElementById("info").style.margin = "20px";
+                  document.getElementById("pay").style.margin = "20px";
+                }, 300);
+                setTimeout(() => {
+                  document.getElementById("info").style.cursor = "pointer";
+                  document.getElementById("pay").style.cursor = "pointer";
+                  document.getElementById("info").style.pointerEvents = "all";
+                  document.getElementById("pay").style.pointerEvents = "all";
+                  document.getElementById("info").style.opacity = "1";
+                  document.getElementById("pay").style.opacity = "1";
+                }, 600);
+            }
+        }
+
+        function file1() {
+                setTimeout(() => {
+      document.getElementById("fileMenu").style.opacity = "1";
+                }, 200);
+                setTimeout(() => {
+        document.getElementById("arrow1").style.opacity = "1";
+        document.getElementById("arrow1").style.top = "393px";
+        document.getElementById("arrow1").style.opacity = "1";
+      document.getElementById("file1").style.cursor = "default";
+      document.getElementById("file1").style.pointerEvents = "none";
+      document.getElementById("fileMenu").style.height = "50px";
+                }, 50);
+                document.getElementById("arrow1").style.display = "inline-block";
+                document.getElementById("file1").style.borderRadius = "0 15px 15px 15px";
+                document.getElementById("fileMenu").style.borderRadius = "15px 15px 15px 0";
+      setTimeout(() => {
+        document.getElementById("arrow1").style.transform = "rotate(-180deg)";
+                }, 200);
+}
+function file1close() {
+        document.getElementById("fileMenu").style.opacity = "0";
+        document.getElementById("fileMenu").style.borderRadius = "15px";
+        document.getElementById("file1").style.borderRadius = "15px";
+        document.getElementById("arrow1").style.transform = "rotate(0deg)";
+        setTimeout(() => {
+          document.getElementById("fileMenu").style.height = "0";
+        document.getElementById("arrow1").style.opacity = "0";
+        document.getElementById("arrow1").style.top = "343px";
+        document.getElementById("file1").style.cursor = "pointer";
+        document.getElementById("file1").style.pointerEvents = "all";
+                }, 200);
+                setTimeout(() => {
+        document.getElementById("arrow1").style.display = "none";
+                }, 500);
+}
+function download1() {
+  document.getElementById("download1").style.opacity = "0";
+  document.getElementById("download1").style.pointerEvents = "none";
+  document.getElementById("download1").style.cursor = "default";
+  document.getElementById("loading1").style.display = "flex";
+  setTimeout(() => { document.getElementById("loading1").style.opacity = "1";}, 50);
+  setTimeout(() => { document.getElementById("loading1").style.opacity = "0";}, 2000);
+  setTimeout(() => { document.getElementById("loading1").style.display = "none"; 
+  document.getElementById("download1").style.opacity = "1"; 
+  document.getElementById("download1").style.pointerEvents = "all"; 
+  document.getElementById("download1").style.cursor = "pointer";}, 2300);
+  setTimeout(() => {
+    window.open('darbai/work2.docx');
+  }, 2300);
+  setTimeout(() => {
+    document.getElementById("fileMenu").style.opacity = "0";
+    document.getElementById("start").style.left = "20px";
+    document.getElementById("arrow1").style.transform = "rotate(0deg)";
+    document.getElementById("fileMenu").style.borderRadius = "15px";
+    document.getElementById("file1").style.borderRadius = "15px";
+  }, 2600);
+        setTimeout(() => {
+          document.getElementById("fileMenu").style.height = "0";
+        document.getElementById("arrow1").style.opacity = "0";
+        document.getElementById("arrow1").style.top = "343px";
+        document.getElementById("file1").style.cursor = "pointer";
+        document.getElementById("file1").style.pointerEvents = "all";
+                }, 2800);
+                setTimeout(() => {
+        document.getElementById("arrow1").style.display = "none";
+                }, 3200);
+                setTimeout(() => {
+    document.getElementById("start").style.left = "-400px";
+  }, 13600);
+}
+function complete1() {
+  document.getElementById("complete1").style.opacity = "0";
+  document.getElementById("complete1").style.pointerEvents = "none";
+  document.getElementById("complete1").style.cursor = "default";
+  document.getElementById("loading2").style.display = "flex";
+  setTimeout(() => { document.getElementById("loading2").style.opacity = "1";}, 50);
+  setTimeout(() => { document.getElementById("completeInfo1").style.display = "flex";}, 2250);
+  setTimeout(() => { document.getElementById("completeInfo1").style.opacity = "1";}, 2300);
+  setTimeout(() => { document.getElementById("loading2").style.opacity = "0";}, 2300);
+  setTimeout(() => { document.getElementById("loading2").style.display = "none";}, 2300);
+  setTimeout(() => { document.getElementById("complete1").style.opacity = "1";}, 2300);
+  setTimeout(() => { document.getElementById("complete1").style.pointerEvents = "all";}, 2300);
+  setTimeout(() => { document.getElementById("complete1").style.cursor = "pointer";}, 2300);
+  setTimeout(() => { document.getElementById("fileMenu").style.opacity = "0";
+        document.getElementById("arrow1").style.transform = "rotate(0deg)";}, 2300);
+        setTimeout(() => {
+          document.getElementById("fileMenu").style.height = "0";
+        document.getElementById("arrow1").style.opacity = "0";
+        document.getElementById("arrow1").style.top = "345px";
+        document.getElementById("file1").style.cursor = "pointer";
+        document.getElementById("file1").style.pointerEvents = "all";
+        document.getElementById("fileMenu").style.borderRadius = "15px";
+        document.getElementById("file1").style.borderRadius = "15px";
+                }, 2500);
+                setTimeout(() => {
+        document.getElementById("arrow1").style.display = "none";
+                }, 2800);
+                setTimeout(() => {
+        document.getElementById("completeInfo1").style.opacity = "0";
+                }, 7600);
+                setTimeout(() => {
+        document.getElementById("completeInfo1").style.display = "none";
+                }, 7900);
+}
+    function openForm() {
+  document.getElementById("myForm2").style.bottom = "10px";
+}
+
+function openMoon() {
+  document.getElementById("butto").style.cursor = "default";
+  document.getElementById("butto").style.opacity = "0.4";
+  document.getElementById("butto").style.pointerEvents = "none";
+  setTimeout(() => {
+    document.getElementById("loader3").style.display = "flex";
+  }, 300);
+  setTimeout(() => {
+    document.getElementById("loader3").style.opacity = "1";
+  }, 350);
+  setTimeout(() => {
+    window.open('https://matthewmatexas.github.io/moon_astec/');
+  }, 2500);
+  setTimeout(() => {
+    document.getElementById("loader3").style.opacity = "0";
+  }, 3000);
+  setTimeout(() => {
+    document.getElementById("loader3").style.display = "none";
+    document.getElementById("moon").style.opacity = "1";
+    document.getElementById("butto").style.cursor = "pointer";
+    document.getElementById("butto").style.pointerEvents = "all";
+    document.getElementById("butto").style.opacity = "1";
+  }, 3300);
+}
+
+function closeForm() {
+  document.getElementById("myForm2").style.bottom = "-350px";
+}
+
+function show() {
+  document.getElementById("eye").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("pass").style.display = "none";
+    document.getElementById("eye").style.display = "none";
+    document.getElementById("pass2").style.display = "inline-block";
+    document.getElementById("eye2").style.display = "inline-block";
+  }, 300);
+  setTimeout(() => {
+    document.getElementById("eye2").style.opacity = "1";
+  }, 350);
+}
+function show2() {
+  document.getElementById("eye2").style.opacity = "0";
+  setTimeout(() => {
+    document.getElementById("pass2").style.display = "none";
+    document.getElementById("eye2").style.display = "none";
+    document.getElementById("pass").style.display = "inline-block";
+    document.getElementById("eye").style.display = "inline-block";
+  }, 300);
+  setTimeout(() => {
+    document.getElementById("eye").style.opacity = "1";
+  }, 350);
+}
+
+function payment() {
+  document.getElementById("info").style.opacity = "0";
+  document.getElementById("pay").style.cursor = "default";
+  document.getElementById("pay").style.pointerEvents = "none";
+  setTimeout(() => {
+    document.getElementById("info").style.width = "0";
+    document.getElementById("info").style.margin = "0";
+    document.getElementById("info").style.padding = "0";
+  }, 300);
+  setTimeout(() => {
+    document.getElementById("paymentsDiv").style.display = "block";
+  }, 550);
+  setTimeout(() => {
+    document.getElementById("paymentsDiv").style.opacity = "1";
+  }, 600);
+}
+function information() {
+  document.getElementById("pay").style.opacity = "0";
+  document.getElementById("info").style.cursor = "default";
+  document.getElementById("info").style.pointerEvents = "none";
+  setTimeout(() => {
+    document.getElementById("pay").style.width = "0";
+    document.getElementById("pay").style.margin = "0";
+    document.getElementById("pay").style.padding = "0";
+  }, 300);
+  setTimeout(() => {
+    document.getElementById("informationDiv").style.display = "block";
+  }, 550);
+  setTimeout(() => {
+    document.getElementById("informationDiv").style.opacity = "1";
+  }, 600);
+}
+function logout() {
+  document.getElementById("logi").style.opacity = "0";
+  document.getElementById("logi2").style.opacity = "0";
+  document.getElementById("formo").style.height = "145px";
+  setTimeout(() => {    document.getElementById("logih").style.display = "none"; }, 300);
+  setTimeout(() => {    document.getElementById("logih2").style.display = "block"; }, 300);
+  setTimeout(() => {    document.getElementById("logi").style.display = "none"; }, 300);
+  setTimeout(() => {    document.getElementById("logi2").style.display = "none"; }, 300);
+  setTimeout(() => {    document.getElementById("loader2").style.display = "block"; }, 300);
+  setTimeout(() => {    document.getElementById("loader2").style.opacity = "1"; }, 350);
+  setTimeout(() => {    location.replace('https://moonastec.github.io/work/login'); }, 2350);
+}
+
+
+
+function loadFunction(){
+  setTimeout(() => {    document.getElementById("screen").style.transform = "scale(5.0)"; }, 1000);
+  setTimeout(() => {    document.getElementById("screen").style.opacity = "0"; }, 1100);
+  setTimeout(() => {    document.getElementById("screen").style.zIndex = "-1"; }, 1200);
+  document.getElementById("wifi").style.marginTop = "-2000px";
+  setTimeout(() => {    document.getElementById("wifi").style.display = "none"; }, 300);
+}
+setTimeout(() => {    document.getElementById("wifi").style.marginTop = "-200px"; }, 20000);
+setTimeout(() => {    document.getElementById("wifi").style.animation = "size 1.5s linear infinite"; }, 20300);
+</script>
+</body>
+</html>

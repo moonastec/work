@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moon_astec☽ work login</title>
+    <link rel="shortcut icon" type="image/jpg" href="photos/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: azure; text-align: center; font-family: 'Poppins', sans-serif; width: 100%; overflow-x: hidden;" onload="loadFunction()">
+   <style>
+       /* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+       *{
+           text-transform: lowercase;
+       }
+       .form-group{
+    width: 100%;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif; 
+    text-align: center;
+}
+.form-group input, .form-group textarea{
+    width: 90%;
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid darkgray;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.container{
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFF;
+    margin-top: 50px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px darkgrey;
+}
+div a{
+    color: black;
+    text-decoration: none;
+}
+       .ispejimas{
+            font-size: 12px;
+           margin: 0 auto;
+           margin-bottom: 10px;
+       }
+       #text{
+           color: red;
+           display: none;
+       }
+       #screen {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: azure;
+    z-index: 100;
+    top: 0;
+    transition: 0.3s;
+}
+@keyframes size{
+    0%{
+        transform: scale(1.0);
+    }
+    8%{
+        transform: scale(1.1);
+    }
+    16%{
+        transform: scale(1.0);
+    }
+    24%{
+        transform: scale(1.1);
+    }
+    32%{
+        transform: scale(1.0);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+@keyframes sukasi2{
+    from{
+        transform: rotate(6000deg);
+    }
+    to{
+        
+    }
+}
+@keyframes opacity{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes spin{
+    0%{
+        transform: rotate(-360deg);
+    }
+    100%{
+        
+    }
+}
+       @media only screen and (max-width: 750px){
+           .container{
+               width: 300px;
+           }
+       }
+    </style>
+    <div id="screen">
+        <p style="position: absolute; font-size: 13px; color: red; transition: 0.3s; margin-top: -2000px;" id="wifi"><i class="fa-solid fa-wifi"></i> Prastas interneto ryšys</p>
+        <div style="width: 120px; height: 120px; border-radius: 100%; box-shadow: 5px 0 10px darkgray; display: flex; justify-content: center; align-items: center; animation: spin 1s linear infinite;"></div>
+        <img src="photos/logo.jpg" alt="Moon_astec" width="100px" height="100px" style="position: absolute;">
+    </div>
+    <img src="photos/logo.jpg" alt="Moon_astec☽" width="200px;">
+    <h3>Moon_astec&#9789; work</h3>
+    <h1><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</h1>
+    <h2 style="color: darkgray; margin: -15px auto;">Employees only</h2>
+<!--    <img src="photos/login.png" alt="Prisijungimo kodai" style="width: 400px; height: 400px;">-->
+  <form>
+   <div class="container">
+    <div class="form-group">
+        <label for="epastas" id="emailas" style="transition: 0.3s;"><i class="fa-solid fa-envelope"></i> Email</label>
+            <input name="pastas" id="myInput" type="email" aria-required="true" style="font-family: 'Poppins', sans-serif; border-radius: 15px; width: 95%; border: 2px solid black; background-color: azure; transition: 0.3s;" placeholder="Enter your email">
+        <label for="message" id="passwordas" style="transition: 0.3s;"><i class="fa-solid fa-key"></i> Password</label>
+            <input name="slaptazodis" type="password" id="myInput2" style="font-family: 'Poppins', sans-serif; border-radius: 15px; width: 95%; border: 2px solid black; background-color: azure; transition: 0.3s;" aria-required="true" placeholder="Enter your password">
+        <button type="button" onclick="check(this.form)" style="overflow: hidden; text-align: center; transition: 0.3s; font-family: 'Poppins', sans-serif; cursor: pointer; height: 35px; font-size: 15px; border: 2px solid darkgrey; width: 98%; border-radius: 15px;" id="btn"><span id="log"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</span><span id="login" style="display: none;"><i class="fa-solid fa-arrow-right-to-bracket"></i> Logging in...</span></button>
+        <div style="width: 35px; height: 35px; border-radius: 100%; opacity: 0; margin: 0 auto; box-shadow: 2px 0 10px darkgray; display: none; justify-content: center; transition: 0.3s; align-items: center; animation: spin 1s linear infinite;" id="load"></div>
+    </div>
+    </div>
+    </form>
+    
+    
+    
+    <script src="https://kit.fontawesome.com/a11707644f.js" crossorigin="anonymous"></script>
+    <script>
+        function check(form)
+        {
+            if(form.pastas.value == "moon.astec@gmail.com" && form.slaptazodis.value == "MoonastecADMIN")
+                {
+                    document.getElementById("btn").style.width = "0";
+                    document.getElementById("btn").style.opacity = "0";
+                    document.getElementById("btn").style.padding = "0";
+                    setTimeout(() => {    document.getElementById("btn").style.display = "none"; }, 300);
+                    setTimeout(() => {    document.getElementById("load").style.display = "flex"; }, 300);
+                    setTimeout(() => {    document.getElementById("load").style.opacity = "1"; }, 350);
+                    document.getElementById("myInput").style.borderColor = "black";
+                    document.getElementById("emailas").style.color = "black";
+                    document.getElementById("myInput2").style.borderColor = "black";
+                    document.getElementById("passwordas").style.color = "black";
+                    setTimeout(() => {    document.getElementById("load").style.opacity = "0"; }, 4700);
+                    setTimeout(() => {    document.getElementById("load").style.display = "none"; }, 5000);
+                    setTimeout(() => {    document.getElementById("log").style.display = "none"; }, 5000);
+                    setTimeout(() => {    document.getElementById("login").style.display = "block"; }, 5000);
+                    setTimeout(() => {    document.getElementById("btn").style.display = "inline-block"; }, 5000);
+                    setTimeout(() => {    document.getElementById("btn").style.width = "100%"; }, 5050);
+                    setTimeout(() => {    document.getElementById("btn").style.opacity = "1"; }, 5050);
+                    setTimeout(() => {    document.getElementById("btn").style.padding = "5px"; }, 5050);
+                    setTimeout(() => {    document.getElementById("myInput").style.borderColor = "green"; }, 5000);
+                    setTimeout(() => {    document.getElementById("myInput2").style.borderColor = "green"; }, 5000);
+                    setTimeout(() => {    document.getElementById("emailas").style.color = "green"; }, 5000);
+                    setTimeout(() => {    document.getElementById("passwordas").style.color = "green"; }, 5000);
+                    setTimeout(() => {    location.replace('https://moonastec.github.io/work/home'); }, 6000);
+                }
+            else{
+                    document.getElementById("btn").style.width = "0";
+                    document.getElementById("btn").style.opacity = "0";
+                    document.getElementById("btn").style.padding = "0";
+                    setTimeout(() => {    document.getElementById("btn").style.display = "none"; }, 300);
+                    setTimeout(() => {    document.getElementById("load").style.display = "flex"; }, 300);
+                    setTimeout(() => {    document.getElementById("load").style.opacity = "1"; }, 350);
+                    document.getElementById("myInput").style.borderColor = "black";
+                    document.getElementById("emailas").style.color = "black";
+                    document.getElementById("myInput2").style.borderColor = "black";
+                    document.getElementById("passwordas").style.color = "black";
+                    setTimeout(() => {    document.getElementById("load").style.opacity = "0"; }, 4700);
+                    setTimeout(() => {    document.getElementById("load").style.display = "none"; }, 5000);
+                    setTimeout(() => {    document.getElementById("btn").style.display = "inline-block"; }, 5000);
+                    setTimeout(() => {    document.getElementById("btn").style.width = "100%"; }, 5050);
+                    setTimeout(() => {    document.getElementById("btn").style.opacity = "1"; }, 5050);
+                    setTimeout(() => {    document.getElementById("btn").style.padding = "5px"; }, 5050);
+                    setTimeout(() => {    document.getElementById("myInput").style.borderColor = "red"; }, 5000);
+                    setTimeout(() => {    document.getElementById("myInput2").style.borderColor = "red"; }, 5000);
+                    setTimeout(() => {    document.getElementById("emailas").style.color = "red"; }, 5000);
+                    setTimeout(() => {    document.getElementById("passwordas").style.color = "red"; }, 5000);
+            }
+        }
+        var input = document.getElementById("myInput");
+var text = document.getElementById("text");
+input.addEventListener("keyup", function(event) {
+
+if (event.getModifierState("CapsLock")) {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none"
+  }
+});
+function loadFunction(){
+  setTimeout(() => {    document.getElementById("screen").style.transform = "scale(5.0)"; }, 1000);
+  setTimeout(() => {    document.getElementById("screen").style.opacity = "0"; }, 1100);
+  setTimeout(() => {    document.getElementById("screen").style.zIndex = "-1"; }, 1200);
+  document.getElementById("wifi").style.marginTop = "-2000px";
+  setTimeout(() => {    document.getElementById("wifi").style.display = "none"; }, 300);
+}
+setTimeout(() => {    document.getElementById("wifi").style.marginTop = "-200px"; }, 20000);
+setTimeout(() => {    document.getElementById("wifi").style.animation = "size 1.5s linear infinite"; }, 20300);
+    </script>
+</body>
+</html>
