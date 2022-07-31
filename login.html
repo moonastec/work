@@ -126,8 +126,9 @@ div a{
         <div style="width: 120px; height: 120px; border-radius: 100%; box-shadow: 5px 0 10px darkgray; display: flex; justify-content: center; align-items: center; animation: spin 1s linear infinite;"></div>
         <img src="photos/logo.jpg" alt="Moon_astec" width="100px" height="100px" style="position: absolute;">
     </div>
-    <img src="photos/logo.jpg" alt="Moon_astec☽" width="200px;">
-    <h3>Moon_astec&#9789; work</h3>
+    <img src="photos/logo.jpg" alt="Moon_astec☽" width="200px;" style="transition: 0.3s; z-index: 5; position: absolute; top: 0; margin-left: -100px;" id="img">
+    <video src="photos/video.mp4" style="width: 200px; position: absolute; transition: 0.3s; top: -1px; display: none; margin-left: -103.5px;" id="vid"></video>
+    <h3 style="margin-top: 200px;">Moon_astec&#9789; work</h3>
     <h1><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</h1>
     <h2 style="color: darkgray; margin: -15px auto;">Employees only</h2>
 <!--    <img src="photos/login.png" alt="Prisijungimo kodai" style="width: 400px; height: 400px;">-->
@@ -148,9 +149,37 @@ div a{
     
     <script src="https://kit.fontawesome.com/a11707644f.js" crossorigin="anonymous"></script>
     <script>
+
+        // Get the input field
+var input = document.getElementById("myInput2");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btn").click();
+  }
+});
+
+// Get the input field
+var input = document.getElementById("myInput");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btn").click();
+  }
+});
         function check(form)
         {
-            if(form.pastas.value == "moon.astec@gmail.com" && form.slaptazodis.value == "MoonastecADMIN")
+            if(form.pastas.value == "moon.astec.shop@gmail.com" && form.slaptazodis.value == "MoonastecADMIN")
                 {
                     document.getElementById("btn").style.width = "0";
                     document.getElementById("btn").style.opacity = "0";
@@ -174,7 +203,13 @@ div a{
                     setTimeout(() => {    document.getElementById("myInput2").style.borderColor = "green"; }, 5000);
                     setTimeout(() => {    document.getElementById("emailas").style.color = "green"; }, 5000);
                     setTimeout(() => {    document.getElementById("passwordas").style.color = "green"; }, 5000);
-                    setTimeout(() => {    location.replace('https://moonastec.github.io/work/home'); }, 6000);
+                    setTimeout(() => {    location.replace('https://moonastec.github.io/work/home'); }, 7000);
+                    setTimeout(() => {    document.getElementById("img").style.opacity = "0"; }, 5000);
+                    setTimeout(() => {   document.getElementById("vid").play(); }, 5300);
+                    setTimeout(() => {    document.getElementById("vid").style.display = "inline-block"; }, 5300);
+                    setTimeout(() => {    document.getElementById("img").style.opacity = "1"; }, 6300);
+                    setTimeout(() => {    document.getElementById("vid").style.display = "none"; }, 6600);
+                    setTimeout(() => {    document.getElementById("vid").currentTime = "0"; }, 6600);
                 }
             else{
                     document.getElementById("btn").style.width = "0";
